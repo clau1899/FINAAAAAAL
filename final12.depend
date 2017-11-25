@@ -1,0 +1,140 @@
+# depslib dependency file v1.0
+1510013173 source:c:\users\apari\desktop\c++\final3232313\final12\main.cpp
+	<allegro.h>
+	"global.h"
+	"datosjuego.h"
+	"audio.h"
+	"players.h"
+	"npc.h"
+	"mijuego.h"
+
+1510020710 "
+
+1510014264 c:\users\apari\desktop\c++\final3232313\final12\global.h
+
+1510013173 c:\users\apari\desktop\c++\final3232313\final12\players.h
+
+1510013173 c:\users\apari\desktop\c++\final3232313\final12\mijuego.h
+
+1510008836 c:\users\apari\desktop\c++\final3232313\final12\audio.h
+
+1510007432 c:\users\apari\desktop\c++\final3232313\final12\datosjuego.h
+
+1510013173 c:\users\apari\desktop\c++\final3232313\final12\npc.h
+
+1510020710 source:g:\final\final3232313\final12\main.cpp
+	<iostream>
+	<stdlib.h>
+	<allegro.h>
+	<string>
+	"global.h"
+	"datosjuego.h"
+	"audio.h"
+	"dialogos.h"
+	"players.h"
+	"npc.h"
+	"mijuego.h"
+
+1510014266 g:\final\final3232313\final12\global.h
+
+1510007434 g:\final\final3232313\final12\datosjuego.h
+
+1510008838 g:\final\final3232313\final12\audio.h
+
+1510020684 g:\final\final3232313\final12\dialogos.h
+	<allegro.h>
+	<string>
+
+1510020684 
+
+1510022628 g:\final\final3232313\final12\players.h
+
+1510015162 g:\final\final3232313\final12\npc.h
+
+1510015162 g:\final\final3232313\final12\mijuego.h
+
+1510417963 source:/home/linkersnay/Desktop/Final3232313/final12/main.cpp
+	<iostream>
+	<allegro.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	"global.h"
+	"datosjuego.h"
+	"audio.h"
+	"dialogos.h"
+	"players.h"
+	"npc.h"
+	"mijuego.h"
+
+1510431288 /home/linkersnay/Desktop/Final3232313/final12/global.h
+
+1444312896 /home/linkersnay/Desktop/Final3232313/final12/datosjuego.h
+
+1510007188 /home/linkersnay/Desktop/Final3232313/final12/audio.h
+
+1510369203 /home/linkersnay/Desktop/Final3232313/final12/dialogos.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<string>
+
+1510007048 /home/linkersnay/Desktop/Final3232313/final12/players.h
+
+1509997162 /home/linkersnay/Desktop/Final3232313/final12/npc.h
+
+1510007044 /home/linkersnay/Desktop/Final3232313/final12/mijuego.h
+
+1511364260 source:c:\users\home\desktop\final3232313\final12\main.cpp
+	<iostream>
+	<allegro.h>
+	"global.h"
+	"datosjuego.h"
+	"audio.h"
+	"dialogos.h"
+	"players.h"
+	"npc.h"
+	"mijuego.h"
+
+1510449288 c:\users\home\desktop\final3232313\final12\global.h
+
+1444330895 c:\users\home\desktop\final3232313\final12\datosjuego.h
+
+1510025188 c:\users\home\desktop\final3232313\final12\audio.h
+
+1511364267 c:\users\home\desktop\final3232313\final12\dialogos.h
+	<iostream>
+	<string>
+
+1510025048 c:\users\home\desktop\final3232313\final12\players.h
+
+1510015162 c:\users\home\desktop\final3232313\final12\npc.h
+
+1510025044 c:\users\home\desktop\final3232313\final12\mijuego.h
+
+1511364262 source:c:\users\apari\desktop\final12\main.cpp
+	<iostream>
+	<allegro.h>
+	"global.h"
+	"datosjuego.h"
+	"audio.h"
+	"dialogos.h"
+	"players.h"
+	"npc.h"
+	"mijuego.h"
+
+1510449288 c:\users\apari\desktop\final12\global.h
+
+1445620194 c:\users\apari\desktop\final12\datosjuego.h
+
+1511580896 c:\users\apari\desktop\final12\audio.h
+
+1511364268 c:\users\apari\desktop\final12\dialogos.h
+	<iostream>
+	<string>
+
+1511581150 c:\users\apari\desktop\final12\players.h
+
+1511580874 c:\users\apari\desktop\final12\npc.h
+
+1511581138 c:\users\apari\desktop\final12\mijuego.h
+

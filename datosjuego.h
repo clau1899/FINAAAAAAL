@@ -1,0 +1,59 @@
+/* Allegro datafile object indexes, produced by grabber v4.4.0, MinGW32 */
+/* Datafile: c:\proyecto c y allegro\2015 rpg\datosjuego.dat */
+/* Date: Fri Oct 23 12:09:54 2015 */
+/* Do not hand edit! */
+
+#define dftextos                         0        /* FONT */
+#define dibosque                         1        /* BMP  */
+#define dibosquechoque                   2        /* BMP  */
+#define dibosquesup                      3        /* BMP  */
+#define dicasa                           4        /* BMP  */
+#define dicasachoque                     5        /* BMP  */
+#define dicasasup                        6        /* BMP  */
+#define dicity1                          7        /* BMP  */
+#define dicity1choque                    8        /* BMP  */
+#define dicity1sup                       9        /* BMP  */
+#define dicursor                         10       /* BMP  */
+#define diene001                         11       /* BMP  */
+#define diespada                         12       /* BMP  */
+#define diinventario                     13       /* BMP  */
+#define dilvlup                          14       /* BMP  */
+#define dimenu                           15       /* BMP  */
+#define dimenu2                          16       /* BMP  */
+#define dio001                           17       /* BMP  */
+#define dio002                           18       /* BMP  */
+#define dio003                           19       /* BMP  */
+#define dio004                           20       /* BMP  */
+#define dio005                           21       /* BMP  */
+#define dio006                           22       /* BMP  */
+#define diper001                         23       /* BMP  */
+#define diper002                         24       /* BMP  */
+#define diper003                         25       /* BMP  */
+#define diper004                         26       /* BMP  */
+#define diper005                         27       /* BMP  */
+#define diper006                         28       /* BMP  */
+#define diper007                         29       /* BMP  */
+#define diper008                         30       /* BMP  */
+#define dipersonaje                      31       /* BMP  */
+#define dipersonaje0                     32       /* BMP  */
+#define dipersonaje2                     33       /* BMP  */
+#define ditienda1                        34       /* BMP  */
+#define ditienda1choque                  35       /* BMP  */
+#define ditienda1sup                     36       /* BMP  */
+#define dmcity1                          37       /* MIDI */
+#define dmmenu                           38       /* MIDI */
+#define dmmusica1                        39       /* MIDI */
+#define dmmusica2                        40       /* MIDI */
+#define dsaa                             41       /* SAMP */
+#define dsabrirpuerta                    42       /* SAMP */
+#define dsbosque                         43       /* SAMP */
+#define dsboton1                         44       /* SAMP */
+#define dsboton2                         45       /* SAMP */
+#define dserror                          46       /* SAMP */
+#define dsespada1                        47       /* SAMP */
+#define dsespada2                        48       /* SAMP */
+#define dsespada3                        49       /* SAMP */
+#define dsmuerte01                       50       /* SAMP */
+#define dspasos                          51       /* SAMP */
+#define dsubenivel                       52       /* SAMP */
+

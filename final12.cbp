@@ -39,6 +39,7 @@
 		<Unit filename="mijuego.h" />
 		<Unit filename="npc.h" />
 		<Unit filename="players.h" />
+		<Unit filename="test.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -10,7 +10,7 @@
 // Esta clase se encarga del manejo del jugador
 class player
 {
-    BITMAP *prota;
+
  int x,y;
  int direccion;
  int animacion;
@@ -18,6 +18,7 @@ class player
     int ataca;
 
     public:
+        BITMAP *prota;
        void inicia();
        void pinta();
        bool choca();
@@ -56,8 +57,8 @@ void player::inicia()
  // inicializar vbles
  direccion = 0;
  animacion = 0;
- x = 540;
- y = 280;
+ x = 400;
+ y = 350;
 }
 
 
@@ -178,12 +179,16 @@ bool player::choca()
             {
                 // si el color no es negro
                 resp = true;
-                // color verde
+                // color verde - mago
                 if ( getpixel( choque, mx+i, my+j) == 0x00ff00 ) cambio = 1;
                 // color azul
                 if ( getpixel( choque, mx+i, my+j) == 0x0000ff ) cambio = 2;
-                // color amarillo
+                // color amarillo -guerrero
                 if ( getpixel( choque, mx+i, my+j) == 0xffff00 ) cambio = 3;
+                //color cyan - elfo
+                if ( getpixel( choque, mx+i, my+j) == 0x00ffff ) cambio = 4;
+                //color verdeoscuro -picaro
+                if ( getpixel( choque, mx+i, my+j) == 0x008000 ) cambio = 5;
             }
 
         }

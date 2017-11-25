@@ -111,7 +111,7 @@
 
 1510025044 c:\users\home\desktop\final3232313\final12\mijuego.h
 
-1511364262 source:c:\users\apari\desktop\final12\main.cpp
+1511582731 source:c:\users\apari\desktop\final12\main.cpp
 	<iostream>
 	<allegro.h>
 	"global.h"
@@ -122,9 +122,9 @@
 	"npc.h"
 	"mijuego.h"
 
-1510449288 c:\users\apari\desktop\final12\global.h
+1511623771 c:\users\apari\desktop\final12\global.h
 
-1445620194 c:\users\apari\desktop\final12\datosjuego.h
+1511632034 c:\users\apari\desktop\final12\datosjuego.h
 
 1511580896 c:\users\apari\desktop\final12\audio.h
 
@@ -132,9 +132,9 @@
 	<iostream>
 	<string>
 
-1511581150 c:\users\apari\desktop\final12\players.h
+1511633206 c:\users\apari\desktop\final12\players.h
 
 1511580874 c:\users\apari\desktop\final12\npc.h
 
-1511581138 c:\users\apari\desktop\final12\mijuego.h
+1511633169 c:\users\apari\desktop\final12\mijuego.h
 

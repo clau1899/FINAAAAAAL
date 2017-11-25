@@ -27,9 +27,9 @@ void carga_escenario()
     switch ( lugar )
     {
     case 1:// casa
-              fondo  = (BITMAP *)datosjuego[dicasa].dat;
-              choque = (BITMAP *)datosjuego[dicasachoque].dat;
-              cielo  = (BITMAP *)datosjuego[dicasasup].dat;
+              fondo  = (BITMAP *)datosjuego[dicasamago].dat;
+              choque = (BITMAP *)datosjuego[dimagochoque].dat;
+              cielo  = (BITMAP *)datosjuego[dimagosup].dat;
 
               desplaza = false;
 
@@ -40,7 +40,7 @@ void carga_escenario()
               fondo  = (BITMAP *)datosjuego[dibosque].dat;
               choque = (BITMAP *)datosjuego[dibosquechoque].dat;
               cielo  = (BITMAP *)datosjuego[dibosquesup].dat;
-
+              jugador.prota =(BITMAP *)datosjuego[dimago].dat;
               desplaza=true;
 
               sonido_ambiente();
@@ -88,7 +88,7 @@ void cambia_escenario()
               lugar = 1;
               carga_escenario();
               // situamos al prota cerca de la puerta
-              jugador.posiciona( 290,440 );
+              jugador.posiciona( 200,440 );
               desplazamiento_map_x=-160;
               desplazamiento_map_y=-160;
               sonido_abrirpuerta();
@@ -218,18 +218,33 @@ void evento_escenario()
     switch ( lugar )
     {
     case 1:// casa
+
          break;
     case 2:   // bosque
-         break;
-    case 3:   // ciudad
-
-
-         if ( personajes[0].posicion_cerca(pzx,pzy)
+        if ( personajes[0].posicion_cerca(pzx,pzy)
                && jugador.accion() && !jugador.hablando() )
          {
-              dialogo.cambia_texto(" Dejame!! estoy ocupadooooo!! ");
+              dialogo.cambia_texto(" Tienes que buscar medicinas para el rey!");
               hablando = 1;
          }
+         if ( hablando == 1 && !jugador.accion() )
+         {
+              hablando = 2;
+              jugador.habla();
+         }
+
+         // obliga a esperar minimo 1 segundo
+         if ( hablando > FRAME_RATE && jugador.accion() ){
+              hablando = 0;
+         }
+
+         if ( hablando == 0 && !jugador.accion() && jugador.hablando() )
+         {
+              jugador.no_habla();
+         }
+
+         break;
+    case 3:   // ciudad
 
          if ( personajes[4].posicion_cerca(pzx,pzy)
                && jugador.accion() && !jugador.hablando() )
@@ -286,9 +301,9 @@ void carga_juego()
 
     jugador.inicia();
 
-    fondo  = (BITMAP *)datosjuego[dicasa].dat;
-    choque = (BITMAP *)datosjuego[dicasachoque].dat;
-    cielo  = (BITMAP *)datosjuego[dicasasup].dat;
+    fondo  = (BITMAP *)datosjuego[dicasamago].dat;
+    choque = (BITMAP *)datosjuego[dimagochoque].dat;
+    cielo  = (BITMAP *)datosjuego[dimagosup].dat;
 
     lugar = 1;
 
@@ -298,8 +313,8 @@ void carga_juego()
 
     cambio = 0;
 npersonaje = 8;
-malo.crea( (BITMAP *)datosjuego[diene001].dat, 380, 280, 3,5,2,100);
-personajes[0].crea( (BITMAP *)datosjuego[diper001].dat, 1300,700, 1,1,3);
+malo.crea( (BITMAP *)datosjuego[diene02].dat, 380, 280, 3,5,2,100);
+personajes[0].crea( (BITMAP *)datosjuego[diper001].dat, 410,380, 1,1,2);
 personajes[1].crea( (BITMAP *)datosjuego[diper005].dat, 280, 450, 0,2,3);
 personajes[2].crea( (BITMAP *)datosjuego[diper005].dat, 230, 280, 3,2,3);
 personajes[3].crea( (BITMAP *)datosjuego[diper003].dat, 960, 310, 2,3,3);

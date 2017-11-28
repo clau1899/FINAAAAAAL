@@ -32,13 +32,17 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="audio.h" />
+		<Unit filename="botones.h" />
 		<Unit filename="datosjuego.h" />
 		<Unit filename="dialogos.h" />
 		<Unit filename="global.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="menu.h" />
 		<Unit filename="mijuego.h" />
-		<Unit filename="npc.h" />
+		<Unit filename="misobjetos.h" />
+		<Unit filename="partidas.h" />
 		<Unit filename="players.h" />
+		<Unit filename="tiendas.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

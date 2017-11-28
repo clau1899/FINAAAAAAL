@@ -41,6 +41,18 @@ void sonido_espada_da(){
     play_sample ( (SAMPLE *)datosjuego[dsespada2].dat, 160,128, 2300, 0 );
 }
 
+void sonido_error(){
+    play_sample ( (SAMPLE *)datosjuego[dserror].dat, 110,128, 1000, 0 );
+}
+
+void sonido_boton(){
+    play_sample ( (SAMPLE *)datosjuego[dsboton1].dat, 110,128, 1100, 0 );
+}
+
+void sonido_boton2(){
+    play_sample ( (SAMPLE *)datosjuego[dsboton2].dat, 100,128, 1400, 0 );
+}
+
 void sonido_muere(){
     play_sample ( (SAMPLE *)datosjuego[dsmuerte01].dat, 120,128, 1000, 0 );
 }

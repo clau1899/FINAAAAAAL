@@ -1,78 +1,180 @@
 // programa principal
 
 #include <iostream>
+
 #include <allegro.h>
-#include "global.h"
+//#include "log.h"
 #include "datosjuego.h"
+#include "botones.h"
+#include "global.h"
 #include "audio.h"
+#include "menu.h"
+#include "misobjetos.h"
 #include "dialogos.h"
 #include "players.h"
+#include "tiendas.h"
 #include "mijuego.h"
+#include "partidas.h"
 
-using namespace std;
 
 void inicia_allegro()
 {
- allegro_init();
- install_keyboard();
+	allegro_init();
+	install_timer();
+	install_keyboard();
+	install_mouse();
 
- set_color_depth(32);
- set_gfx_mode(GFX_AUTODETECT_WINDOWED, PANTALLA_ANCHO, PANTALLA_ALTO, 0, 0);
+	set_color_depth(32);
+	set_gfx_mode(GFX_AUTODETECT_WINDOWED, PANTALLA_ANCHO, PANTALLA_ALTO, 0, 0);
 
- buffer = create_bitmap(PANTALLA_ANCHO, PANTALLA_ALTO);
- // incializa el audio en allegro
- if (install_sound(DIGI_AUTODETECT, MIDI_AUTODETECT, NULL) != 0) {
-   allegro_message("Error: inicializando sistema de sonido\n%s\n", allegro_error);
+    // incializa el audio en allegro
+    if (install_sound(DIGI_AUTODETECT, MIDI_AUTODETECT, NULL) != 0) {
+       allegro_message("Error: inicializando sistema de sonido\n%s\n", allegro_error);
+    }
 
-}
+	set_volume(230, 90);
 
-// inicializa todo lo referente al sonido
-    set_volume(230, 90);
+	buffer = create_bitmap(PANTALLA_ANCHO, PANTALLA_ALTO);
+	cbuffer = create_bitmap(PANTALLA_ANCHO, PANTALLA_ALTO);
 
     LOCK_VARIABLE(contador_tiempo_juego);
     LOCK_FUNCTION(inc_contador_tiempo_juego);
 
     // Iniciamos el limitador de FPS
     install_int_ex(inc_contador_tiempo_juego, BPS_TO_TIMER( FRAME_RATE ));
+
     srand (time(NULL));
 }
 
+
+// Copiar el buffer a la pantalla del juego (screen)
+void pintar_pantalla()
+{
+
+    if ( swinv > 0 || swtienda > 0 )
+    {
+         masked_blit( (BITMAP *)datosjuego[dicursor].dat, buffer, 0,0,mouse_x, mouse_y, 16,16);
+    }
+    if ( swinv > 0 && swraton > -1 )
+    {
+         masked_blit( (BITMAP *)datobjetos[id_img_objeto( nid)].dat, buffer, 0,0,mouse_x, mouse_y, 32,32);
+    }
+
+    blit(buffer, screen, 0, 0, 0, 0, PANTALLA_ANCHO, PANTALLA_ALTO);
+}
+
+
+// programa principal
 int main()
 {
-        inicia_allegro();
 
-        carga_juego();
+    inicia_allegro();
 
- salir = false;
+    carga_inicio();
 
+    //musica_menu();
 
- while (!salir)
- {
-          if ( contador_tiempo_juego )
+    int op;
+    MIMENU menu;
+
+    do{
+
+    blit(menufondo, buffer, 0, 0, 0, 0, PANTALLA_ANCHO, PANTALLA_ALTO);
+	menu.pinta();
+	op = menu.teclado();
+
+    // se a seleccionado una opcion
+       if (key[KEY_ENTER] || key[KEY_ENTER_PAD])
+       {
+          if ( op == 2 )
           {
-                while ( contador_tiempo_juego )
-                {
-                    actualiza_juego();
+                // carga partida
+                carga_partida();
+                sonido_sube_nivel();
+          }
+          if ( op == 1 )
+          {
+                jugador.inicia();
+                lugar = 1;
+                desplazamiento_map_x=-160;
+                desplazamiento_map_y=-160;
+                sonido_sube_nivel();
 
-                    contador_tiempo_juego--;
+                npersonaje = 10;
+
+                personajes[0].crea( diper001, 1300,700, 1,1,3);
+                personajes[1].crea( diper005, 280, 450, 0,2,3);
+                personajes[2].crea( diper005, 230, 280, 3,2,3);
+                personajes[3].crea( diper003, 960, 310, 2,3,3);
+                personajes[4].crea( diper005, 1120, 450, 0,4,3);
+                personajes[5].crea( diper004, 900, 650, 1,5,3);
+                personajes[6].crea( diper006, 850, 800, 0,0,3);
+                personajes[7].crea( diper001, 530, 280, 1,5,3);
+                personajes[8].crea( diper007, 334, 170, 0,0,4);
+                personajes[9].crea( diper008, 142, 170, 0,0,4);
+
+                nmalos = 3;
+                malos[0].crea( diene001, 380, 280, 3,5,2,100);
+                malos[1].crea( diene001, 400, 720, 0,5,2,100);
+                malos[2].crea( diene001, 380, 240, 0,5,2,100);
+                malos[3].crea( diper005, 440, 720, 3,5,2,100);
+
+          }
+
+          if ( op == 1 || op == 2 )
+          {
+               carga_juego();
+
+            // juego
+            	salir = false;
+
+            	while ( !salir )
+            	{
+
+                	  // tecla de salida
+                	  if ( key[KEY_ESC] ) salir = true;
+
+                      if ( contador_tiempo_juego )
+                      {
+                            while ( contador_tiempo_juego )
+                            {
+                                actualiza_juego();
+                                contador_tiempo_juego--;
+                            }
+
+                            clear_to_color(buffer, 0x00000);
+
+                            pinta_juego();
+                            pintar_pantalla();
+
+                      }else{
+                           rest(1);
+                      }
                 }
 
-                clear_to_color(buffer, 0x00000);
-
-                pinta_juego();
-
-                pintar_pantalla();
-
-          }else{
-
-               rest(1);
-          }
-       // tecla de salida
-       if ( key[KEY_ESC] ) salir = true;
+            if ( lugar == 2 ) para_sonido_ambiente();
+            // fin juego
+            guarda_partida();
+            //musica_menu();
+            op=2;
+       }
     }
- unload_datafile(datosjuego);
- destroy_bitmap(buffer);
 
- return 0;
+ 	pintar_pantalla();
+
+    }while ( !menu.salir() );
+
+
+
+    destroy_bitmap(fondo);
+    destroy_bitmap(choque);
+    destroy_bitmap(cielo);
+
+    destroy_bitmap(menufondo);
+    destroy_bitmap(menufondo2);
+    destroy_bitmap(cbuffer);
+	destroy_bitmap(buffer);
+
+	return 0;
 }
 END_OF_MAIN();

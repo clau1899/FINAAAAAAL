@@ -9,6 +9,16 @@
 char evalc[19]="cursoRPGkodaygames";
 
 DATAFILE *datosjuego;
+DATAFILE *datobjetos;
+DATAFILE *datotiendas;
+
+int swtienda;
+int sel_obj;
+int swerror;
+
+int swraton;
+int nsel;
+int nid;
 
 // Ancho y alto de la pantalla
 const int PANTALLA_ANCHO = 800;
@@ -20,12 +30,7 @@ BITMAP *buffer;
 bool lvl_up;
 int nlvlup;
 int lux, luy;
-
-// Copiar el buffer a la pantalla del juego (screen)
-void pintar_pantalla()
-{
-    blit(buffer, screen, 0, 0, 0, 0, PANTALLA_ANCHO, PANTALLA_ALTO);
-}
+int swinv;
 
 // controla el bucle principal
 bool salir;
@@ -48,6 +53,10 @@ int desplazamiento_map_y;
 BITMAP *fondo;
 BITMAP *choque;
 BITMAP *cielo;
+
+BITMAP *cbuffer;
+BITMAP *menufondo;
+BITMAP *menufondo2;
 
 
 // Variable usada para la velocidad

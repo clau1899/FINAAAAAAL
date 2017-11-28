@@ -17,6 +17,9 @@ const int PANTALLA_ALTO  = 600;
 // En este BITMAP dibujaremos todo
 BITMAP *buffer;
 
+bool lvl_up;
+int nlvlup;
+int lux, luy;
 
 // Copiar el buffer a la pantalla del juego (screen)
 void pintar_pantalla()

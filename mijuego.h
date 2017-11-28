@@ -9,12 +9,21 @@
 
 */
 
+
 player jugador;
-enemigo malo;
+#include "npc.h"
 npc personajes[30];
 int npersonaje;
-bool desplaza;
+
+enemigo malos[30];
+int nmalos;
+
 MENSAJE texto, dialogo;
+
+int mision;
+
+// para saber si el mapa tiene scroll
+bool desplaza;
 
 const int scroll_rango1 = 200;
 const int scroll_rango2 = 90;
@@ -59,6 +68,48 @@ void carga_escenario()
 
     }
 }
+void pinta_barra_vida()
+{
+
+    int n = (jugador.getvida()*150) / jugador.getvidamax() ;
+
+    rectfill( buffer, PANTALLA_ANCHO-162, 10, PANTALLA_ANCHO-8, 25, 0x003300);
+    rectfill( buffer, PANTALLA_ANCHO-160, 12, PANTALLA_ANCHO-160+n, 23, 0x00ff00);
+    rectfill( buffer, PANTALLA_ANCHO-160, 12, PANTALLA_ANCHO-160+n, 15, 0xbbffaa);
+    rect( buffer, PANTALLA_ANCHO-162, 10, PANTALLA_ANCHO-8, 25, 0x000000);
+
+    int nxp = 100 * ( jugador.getnivel() + 1 );
+    int n2 = (jugador.getexp()*150) / nxp ;
+
+    rectfill( buffer, PANTALLA_ANCHO-162, 30, PANTALLA_ANCHO-8, 45, 0x000033);
+    rectfill( buffer, PANTALLA_ANCHO-160, 32, PANTALLA_ANCHO-160+n2, 43, 0x0000ff);
+    rectfill( buffer, PANTALLA_ANCHO-160, 32, PANTALLA_ANCHO-160+n2, 35, 0xbbaaff);
+    rect( buffer, PANTALLA_ANCHO-162, 30, PANTALLA_ANCHO-8, 45, 0x000000);
+    textprintf_centre_ex( buffer, font, PANTALLA_ANCHO - 80, 34, 0xFFFFFF, -1, "Niv: %d",
+                    jugador.getnivel() );
+}
+
+void pinta_lvlup()
+{
+     if ( lvl_up )
+     {
+          nlvlup = 1;
+          lux = jugador.getx();
+          luy = jugador.gety();
+          lvl_up = false;
+     }
+     if ( nlvlup > 0 )
+     {
+          masked_blit ( (BITMAP *)datosjuego[dilvlup].dat, buffer, 0,0, lux, luy - nlvlup*2, 32,32 );
+          int num = FRAME_RATE / 10;
+           if ( tiempo_total % num == 0 )
+           {
+              nlvlup++;
+           }
+           if  ( nlvlup > 40 ) nlvlup = 0;
+     }
+}
+
 void cambia_escenario()
 {
 
@@ -206,22 +257,13 @@ void evento_escenario()
     int pzx = jugador.getx() + desplazamiento_map_x;
     int pzy = jugador.gety() + desplazamiento_map_y;
 
-     if ( jugador.atacando() && malo.posicion_cerca(pzx,pzy)
-       && !malo.ha_muerto() )
-    {
-        int xn = 2 + rand()%2;
-        jugador.no_ataca();
-        sonido_espada_da();
-        malo.herida(xn);
-    }
-
     switch ( lugar )
     {
     case 1:// casa
 
          break;
     case 2:   // bosque
-        if ( personajes[0].posicion_cerca(pzx,pzy)
+        if ( personajes[0].posicion_cerca()
                && jugador.accion() && !jugador.hablando() )
          {
               dialogo.cambia_texto(" Tienes que buscar medicinas para el rey!");
@@ -246,14 +288,14 @@ void evento_escenario()
          break;
     case 3:   // ciudad
 
-         if ( personajes[4].posicion_cerca(pzx,pzy)
+         if ( personajes[4].posicion_cerca()
                && jugador.accion() && !jugador.hablando() )
          {
               dialogo.cambia_texto(" Aparta!!, no tengo tiempo para hablar con pueblerinos. Tengo que seguir con mi ronda de vigilancia. " );
               hablando = 1;
          }
 
-         if ( personajes[5].posicion_cerca(pzx,pzy)
+         if ( personajes[5].posicion_cerca()
                && jugador.accion() && !jugador.hablando() )
          {
               dialogo.cambia_texto(" Soy la reina de los mares!! .. paseando por la calle voy ^_^ " );
@@ -261,7 +303,7 @@ void evento_escenario()
          }
 
 
-         if ( personajes[6].posicion_cerca(pzx,pzy)
+         if ( personajes[6].posicion_cerca()
                && jugador.accion() && !jugador.hablando() )
          {
               dialogo.cambia_texto(" Me han dicho que han visto un goblin merodeando por el bosque, debes tener cuidado cuando vuelvas a tu casa." );
@@ -313,7 +355,9 @@ void carga_juego()
 
     cambio = 0;
 npersonaje = 8;
-malo.crea( (BITMAP *)datosjuego[diene02].dat, 380, 280, 3,5,2,100);
+nmalos = 2;
+malos[0].crea( (BITMAP *)datosjuego[diene001].dat, 380, 280, 3,5,2,100);
+malos[1].crea( (BITMAP *)datosjuego[diene001].dat, 400, 720, 0,5,2,100);
 personajes[0].crea( (BITMAP *)datosjuego[diper001].dat, 410,380, 1,1,2);
 personajes[1].crea( (BITMAP *)datosjuego[diper005].dat, 280, 450, 0,2,3);
 personajes[2].crea( (BITMAP *)datosjuego[diper005].dat, 230, 280, 3,2,3);
@@ -381,7 +425,10 @@ void pinta_juego()
      personajes[z].pinta();
 }
 
-malo.pinta();
+for ( int z=0; z < nmalos; z++ )
+ {
+     malos[z].pinta();
+ }
 blit( fondo, buffer, ax, ay, bx, by, ancho, alto);
     blit( fondo, buffer, ax, ay, bx, by, ancho, alto);
     jugador.pinta();
@@ -393,4 +440,6 @@ blit( fondo, buffer, ax, ay, bx, by, ancho, alto);
      dialogo.pinta(buffer);
      hablando++;
         }
+    pinta_barra_vida();
+    pinta_lvlup();
 }

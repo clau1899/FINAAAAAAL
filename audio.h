@@ -44,3 +44,15 @@ void sonido_espada_da(){
 void sonido_muere(){
     play_sample ( (SAMPLE *)datosjuego[dsmuerte01].dat, 120,128, 1000, 0 );
 }
+
+void sonido_espada_choca(){
+    play_sample ( (SAMPLE *)datosjuego[dsespada3].dat, 110,128, 900, 0 );
+}
+
+void sonido_herido(){
+    play_sample ( (SAMPLE *)datosjuego[dsaa].dat, 160,128, 900, 0 );
+}
+
+void sonido_sube_nivel(){
+    play_sample ( (SAMPLE *)datosjuego[dsubenivel].dat, 110,128, 1300, 0 );
+}

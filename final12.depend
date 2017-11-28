@@ -138,3 +138,30 @@
 
 1511633169 c:\users\apari\desktop\final12\mijuego.h
 
+1511839915 source:c:\users\apari\desktop\finaaaaaal-master\main.cpp
+	<iostream>
+	<allegro.h>
+	"global.h"
+	"datosjuego.h"
+	"audio.h"
+	"dialogos.h"
+	"players.h"
+	"mijuego.h"
+
+1511840164 c:\users\apari\desktop\finaaaaaal-master\global.h
+
+1511622994 c:\users\apari\desktop\finaaaaaal-master\datosjuego.h
+
+1511840266 c:\users\apari\desktop\finaaaaaal-master\audio.h
+
+1511622994 c:\users\apari\desktop\finaaaaaal-master\dialogos.h
+	<iostream>
+	<string>
+
+1511840518 c:\users\apari\desktop\finaaaaaal-master\players.h
+
+1511840404 c:\users\apari\desktop\finaaaaaal-master\npc.h
+
+1511840479 c:\users\apari\desktop\finaaaaaal-master\mijuego.h
+	"npc.h"
+

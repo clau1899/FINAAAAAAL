@@ -7,7 +7,6 @@
 #include "audio.h"
 #include "dialogos.h"
 #include "players.h"
-#include "npc.h"
 #include "mijuego.h"
 
 using namespace std;

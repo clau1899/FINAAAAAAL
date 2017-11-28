@@ -17,8 +17,14 @@ class player
     bool hablar;
     int ataca;
 
+    int vida;
+    int vidamax;
+
+    int enivel;
+    int exp;
+
     public:
-        BITMAP *prota;
+       BITMAP *prota;
        void inicia();
        void pinta();
        bool choca();
@@ -33,8 +39,17 @@ class player
        bool hablando(){ return hablar; };
        bool atacando(){ return ataca>1; };
        void no_ataca(){ ataca = -3; };
-};
+       int  dire(){ return direccion; };
 
+       int getvida(){ return vida; };
+       int getvidamax(){ return vidamax; };
+       void herido(int n){ vida-=n; };
+
+       void sube_experiencia( int e );
+
+       int getnivel(){ return enivel; };
+       int getexp(){ return exp; };
+};
 bool player::accion()
 {
      return key[KEY_ENTER] || key[KEY_ENTER_PAD] ;
@@ -45,6 +60,30 @@ void player::habla()
      hablar = true;
 }
 
+void player::sube_experiencia( int e )
+{
+     exp = exp + e;
+     int nxp = 100 * ( enivel + 1 );
+
+     if ( exp >= nxp  && nxp != 1 )
+     {
+          exp = exp - nxp;
+          enivel++;
+          // ha subido de nivel !!
+          sonido_sube_nivel();
+          lvl_up = true;
+
+          nxp = 100 * ( enivel + 1 );
+          while ( exp >= nxp )
+          {
+              exp = exp - nxp;
+              enivel++;
+              // ha subido de nivel !!
+              sonido_sube_nivel();
+              nxp = 100 * ( enivel + 1 );
+          }
+     }
+}
 
 void player::no_habla()
 {
@@ -59,6 +98,10 @@ void player::inicia()
  animacion = 0;
  x = 400;
  y = 350;
+vida = 200;
+vidamax = 200;
+exp = 0;
+enivel = 0;
 }
 
 

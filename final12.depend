@@ -138,20 +138,24 @@
 
 1511633169 c:\users\apari\desktop\final12\mijuego.h
 
-1511842332 source:c:\users\apari\desktop\finaaaaaal-master\main.cpp
+1511924632 source:c:\users\apari\desktop\finaaaaaal-master\main.cpp
 	<iostream>
 	<allegro.h>
-	"global.h"
 	"datosjuego.h"
+	"botones.h"
+	"global.h"
 	"audio.h"
+	"menu.h"
 	"misobjetos.h"
 	"dialogos.h"
 	"players.h"
+	"tiendas.h"
 	"mijuego.h"
+	"partidas.h"
 
-1511843838 c:\users\apari\desktop\finaaaaaal-master\global.h
+1511909225 c:\users\apari\desktop\finaaaaaal-master\global.h
 
-1511622994 c:\users\apari\desktop\finaaaaaal-master\datosjuego.h
+1511935720 c:\users\apari\desktop\finaaaaaal-master\datosjuego.h
 
 1511844381 c:\users\apari\desktop\finaaaaaal-master\audio.h
 
@@ -159,13 +163,22 @@
 	<iostream>
 	<string>
 
-1511844324 c:\users\apari\desktop\finaaaaaal-master\players.h
+1511925409 c:\users\apari\desktop\finaaaaaal-master\players.h
 
-1511844379 c:\users\apari\desktop\finaaaaaal-master\npc.h
+1511910056 c:\users\apari\desktop\finaaaaaal-master\npc.h
 
-1511844231 c:\users\apari\desktop\finaaaaaal-master\mijuego.h
+1511957554 c:\users\apari\desktop\finaaaaaal-master\mijuego.h
 	"npc.h"
 
 1511843125 c:\users\apari\desktop\finaaaaaal-master\misobjetos.h
 	<vector>
+
+1511843249 c:\users\apari\desktop\finaaaaaal-master\botones.h
+	<allegro.h>
+
+1511846058 c:\users\apari\desktop\finaaaaaal-master\menu.h
+
+1511848389 c:\users\apari\desktop\finaaaaaal-master\tiendas.h
+
+1511923717 c:\users\apari\desktop\finaaaaaal-master\partidas.h
 

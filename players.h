@@ -1,7 +1,6 @@
 
 class player
 {
-    BITMAP *prota;
 	int x,y;
 	int direccion;
 	int animacion;
@@ -25,6 +24,7 @@ class player
     int dinero;
 
     public:
+       BITMAP *prota;
        void inicia();
        void pinta();
        void teclado();
@@ -197,8 +197,8 @@ void player::inicia()
 	// inicializar vbles
 	direccion = 0;
 	animacion = 0;
-	x = 540;
-	y = 280;
+	x = 444;
+	y = 100;
 
     hablar = false;
     ataca = 0;
@@ -274,6 +274,12 @@ bool player::choca()
                 if ( getpixel( cbuffer, x+i, y+j) == 0x0000ff )
                 {
                       cambio = 2;
+                      resp=true;
+                }
+                //color cyan
+                if ( getpixel( cbuffer, x+i, y+j) == 0x00ffff )
+                {
+                      cambio = 4;
                       resp=true;
                 }
                 // color amarillo

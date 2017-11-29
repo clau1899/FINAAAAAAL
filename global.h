@@ -6,7 +6,7 @@
 #endif // GLOBAL_H_INCLUDED
 
 // clave del fichero datafile
-char evalc[19]="cursoRPGkodaygames";
+char evalc[9]="RPGfinal";
 
 DATAFILE *datosjuego;
 DATAFILE *datobjetos;

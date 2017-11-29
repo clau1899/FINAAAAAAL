@@ -3,7 +3,6 @@
 #include <iostream>
 
 #include <allegro.h>
-//#include "log.h"
 #include "datosjuego.h"
 #include "botones.h"
 #include "global.h"
@@ -96,8 +95,8 @@ int main()
           {
                 jugador.inicia();
                 lugar = 1;
-                desplazamiento_map_x=-160;
-                desplazamiento_map_y=-160;
+                desplazamiento_map_x=0;
+                desplazamiento_map_y=160;
                 sonido_sube_nivel();
 
                 npersonaje = 10;
@@ -114,10 +113,10 @@ int main()
                 personajes[9].crea( diper008, 142, 170, 0,0,4);
 
                 nmalos = 3;
-                malos[0].crea( diene001, 380, 280, 3,5,2,100);
-                malos[1].crea( diene001, 400, 720, 0,5,2,100);
-                malos[2].crea( diene001, 380, 240, 0,5,2,100);
-                malos[3].crea( diper005, 440, 720, 3,5,2,100);
+                //malos[0].crea( diene001, 380, 280, 3,5,2,100);
+                //malos[1].crea( diene001, 400, 720, 0,5,2,100);
+                //malos[2].crea( diene001, 380, 240, 0,5,2,100);
+                //malos[3].crea( diper005, 440, 720, 3,5,2,100);
 
           }
 
@@ -174,7 +173,8 @@ int main()
     destroy_bitmap(menufondo2);
     destroy_bitmap(cbuffer);
 	destroy_bitmap(buffer);
-
+    cout << jugador.getx()<<endl;
+    cout << jugador.gety()<<endl;
 	return 0;
 }
 END_OF_MAIN();

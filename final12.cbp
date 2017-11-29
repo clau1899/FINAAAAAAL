@@ -40,6 +40,7 @@
 		<Unit filename="menu.h" />
 		<Unit filename="mijuego.h" />
 		<Unit filename="misobjetos.h" />
+		<Unit filename="npc.h" />
 		<Unit filename="partidas.h" />
 		<Unit filename="players.h" />
 		<Unit filename="tiendas.h" />

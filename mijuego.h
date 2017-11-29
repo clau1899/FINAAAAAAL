@@ -89,7 +89,20 @@ void carga_escenario()
 {
     switch ( lugar )
     {
-    case 1:// casa
+
+    case 1:// bosque
+              fondo  = (BITMAP *)datosjuego[dimenut].dat;
+              choque = (BITMAP *)datosjuego[dimenutchoque].dat;
+              cielo  = (BITMAP *)datosjuego[dimenutsup].dat;
+
+              desplaza=true;
+              carga_mapa_choque();
+              sonido_ambiente();
+              musica_bosque();
+         break;
+
+
+    case 2:// casa
               fondo  = (BITMAP *)datosjuego[dicasa].dat;
               choque = (BITMAP *)datosjuego[dicasachoque].dat;
               cielo  = (BITMAP *)datosjuego[dicasasup].dat;
@@ -100,7 +113,7 @@ void carga_escenario()
               musica_casa();
          break;
 
-    case 2:// bosque
+    case 3:// bosque
               fondo  = (BITMAP *)datosjuego[dibosque].dat;
               choque = (BITMAP *)datosjuego[dibosquechoque].dat;
               cielo  = (BITMAP *)datosjuego[dibosquesup].dat;
@@ -111,7 +124,7 @@ void carga_escenario()
               musica_bosque();
          break;
 
-    case 3:// ciudad
+    case 4:// ciudad
               fondo  = (BITMAP *)datosjuego[dicity1].dat;
               choque = (BITMAP *)datosjuego[dicity1choque].dat;
               cielo  = (BITMAP *)datosjuego[dicity1sup].dat;
@@ -120,7 +133,7 @@ void carga_escenario()
               carga_mapa_choque();
               if ( cambio == 0 ) musica_ciudad1();
          break;
-    case 4:// tienda1
+    case 5:// tienda1
               fondo  = (BITMAP *)datosjuego[ditienda1].dat;
               choque = (BITMAP *)datosjuego[ditienda1choque].dat;
               cielo  = (BITMAP *)datosjuego[ditienda1sup].dat;
@@ -129,6 +142,208 @@ void carga_escenario()
               if ( cambio != 0 ) sonido_abrirpuerta();
               if ( cambio == 0 ) musica_ciudad1();
          break;
+
+    case 6:// elfo1 ciudad
+              fondo  = (BITMAP *)datosjuego[dieciudad].dat;
+              choque = (BITMAP *)datosjuego[dieciudadchoque].dat;
+              cielo  = (BITMAP *)datosjuego[dieciudadsup].dat;
+
+              carga_mapa_choque();
+              desplaza = false;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+
+    case 7:// guerrero1 campo
+              fondo  = (BITMAP *)datosjuego[digcampo].dat;
+              choque = (BITMAP *)datosjuego[digcampochoque].dat;
+              cielo  = (BITMAP *)datosjuego[digcamposup].dat;
+
+              desplaza=false;
+              carga_mapa_choque();
+              if ( cambio == 0 ) musica_ciudad1();
+         break;
+    case 8:// elfo2 camino
+              fondo  = (BITMAP *)datosjuego[diecaminochoque].dat;
+              choque = (BITMAP *)datosjuego[diecaminochoque].dat;
+              cielo  = (BITMAP *)datosjuego[diecaminosup].dat;
+
+              carga_mapa_choque();
+              desplaza = false;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 9:// elfo3 castillo
+              fondo  = (BITMAP *)datosjuego[diecastillo].dat;
+              choque = (BITMAP *)datosjuego[diecastillochoque].dat;
+              cielo  = (BITMAP *)datosjuego[diecastillosup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 10:// elfo4 cuarto
+              fondo  = (BITMAP *)datosjuego[diecuarto].dat;
+              choque = (BITMAP *)datosjuego[diecuartochoque].dat;
+              cielo  = (BITMAP *)datosjuego[diecuartosup].dat;
+
+              carga_mapa_choque();
+              desplaza = false;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 11:// elfo5 goal
+              fondo  = (BITMAP *)datosjuego[diegoal].dat;
+              choque = (BITMAP *)datosjuego[diegoalchoque].dat;
+              cielo  = (BITMAP *)datosjuego[diegoalsup].dat;
+
+              carga_mapa_choque();
+              desplaza = false;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 12:// guerrero2 pueblo
+              fondo  = (BITMAP *)datosjuego[digpueblo].dat;
+              choque = (BITMAP *)datosjuego[digpueblochoque].dat;
+              cielo  = (BITMAP *)datosjuego[digpueblosup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 13:// guerrero3 torre
+              fondo  = (BITMAP *)datosjuego[digtorre].dat;
+              choque = (BITMAP *)datosjuego[digtorrechoque].dat;
+              cielo  = (BITMAP *)datosjuego[digtorresup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 14:// guerrero4 castillo
+              fondo  = (BITMAP *)datosjuego[digcastillo].dat;
+              choque = (BITMAP *)datosjuego[digcastillochoque].dat;
+              cielo  = (BITMAP *)datosjuego[digcastillosup].dat;
+
+              carga_mapa_choque();
+              desplaza = false;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 15:// mago1 cuarto
+              fondo  = (BITMAP *)datosjuego[dimcuarto].dat;
+              choque = (BITMAP *)datosjuego[dimcuartochoque].dat;
+              cielo  = (BITMAP *)datosjuego[dimcuartosup].dat;
+
+              carga_mapa_choque();
+              desplaza = false;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 16:// mago2 castillo
+              fondo  = (BITMAP *)datosjuego[dimcastillo].dat;
+              choque = (BITMAP *)datosjuego[dimcastillochoque].dat;
+              cielo  = (BITMAP *)datosjuego[dimcastillosup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 17:// mago3 bosque
+              fondo  = (BITMAP *)datosjuego[dimbosque].dat;
+              choque = (BITMAP *)datosjuego[dimbosquechoque].dat;
+              cielo  = (BITMAP *)datosjuego[dimbosquesup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 18:// mago4 oasis
+              fondo  = (BITMAP *)datosjuego[dimoasis].dat;
+              choque = (BITMAP *)datosjuego[dimoasischoque].dat;
+              cielo  = (BITMAP *)datosjuego[dimoasissup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 19:// mago5 pueblo1
+              fondo  = (BITMAP *)datosjuego[dimpueblo1].dat;
+              choque = (BITMAP *)datosjuego[dimpueblo1choque].dat;
+              cielo  = (BITMAP *)datosjuego[dimcastillosup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 20:// mago6 pueblo2
+              fondo  = (BITMAP *)datosjuego[dimpueblo2].dat;
+              choque = (BITMAP *)datosjuego[dimpueblo2choque].dat;
+              cielo  = (BITMAP *)datosjuego[dimcastillosup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 21:// rogue1 cuarto
+              fondo  = (BITMAP *)datosjuego[dircuarto].dat;
+              choque = (BITMAP *)datosjuego[dircuartochoque].dat;
+              cielo  = (BITMAP *)datosjuego[dircuartosup].dat;
+
+              carga_mapa_choque();
+              desplaza = false;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 22:// rogue2 casa
+              fondo  = (BITMAP *)datosjuego[dircasa].dat;
+              choque = (BITMAP *)datosjuego[dircasachoque].dat;
+              cielo  = (BITMAP *)datosjuego[dircasasup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 23:// rogue3 pueblo
+              fondo  = (BITMAP *)datosjuego[dirpueblo].dat;
+              choque = (BITMAP *)datosjuego[dirpueblochoque].dat;
+              cielo  = (BITMAP *)datosjuego[dirpueblosup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 24:// rogue4 ladrones
+              fondo  = (BITMAP *)datosjuego[dirladrones].dat;
+              choque = (BITMAP *)datosjuego[dirladroneschoque].dat;
+              cielo  = (BITMAP *)datosjuego[dirladronessup].dat;
+
+              carga_mapa_choque();
+              desplaza = true;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+    case 25:// rogue5 goal
+              fondo  = (BITMAP *)datosjuego[dirgoal].dat;
+              choque = (BITMAP *)datosjuego[dirgoalchoque].dat;
+              cielo  = (BITMAP *)datosjuego[dirgoalsup].dat;
+
+              carga_mapa_choque();
+              desplaza = false;
+              if ( cambio != 0 ) sonido_abrirpuerta();
+              musica_casa();
+         break;
+
     }
 }
 
@@ -217,12 +432,81 @@ void cambia_escenario()
 
     switch ( lugar )
     {
-    case 1:   // casa
+
+    case 1:
+          if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // warrior1
+              lugar = 7;
+              carga_escenario();
+              // situamos al prota cerca de la puerta
+              jugador.posiciona( 382,264 );
+              jugador.prota =(BITMAP *)datosjuego[diguerrero].dat;
+              desplazamiento_map_x=-160;
+
+              desplazamiento_map_y=-160;
+
+              sonido_abrirpuerta();
+              para_sonido_ambiente();
+              cambio = 0;
+         }
+         if ( cambio == 3 )
+         {
+              // cambiamos a otro lugar
+              // elfo1
+              lugar = 6;
+              carga_escenario();
+              // situamos al prota en el camino
+              jugador.posiciona( 360,300 );
+              jugador.prota =(BITMAP *)datosjuego[dielfo].dat;
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+              para_sonido_ambiente();
+              musica_ciudad1();
+              cambio = 0;
+         }
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // mago1
+              lugar = 15;
+              carga_escenario();
+              // situamos al prota cerca de la puerta
+              jugador.posiciona( 382,264 );
+              jugador.prota =(BITMAP *)datosjuego[dimago].dat;
+              desplazamiento_map_x=-160;
+
+              desplazamiento_map_y=-160;
+
+              sonido_abrirpuerta();
+              para_sonido_ambiente();
+              cambio = 0;
+         }
+         if ( cambio == 4 )
+         {
+              // cambiamos a otro lugar
+              // rogue1
+              lugar = 21;
+              carga_escenario();
+              // situamos al prota cerca de la puerta
+              jugador.posiciona( 382,264 );
+              jugador.prota =(BITMAP *)datosjuego[dipicaro].dat;
+              desplazamiento_map_x=-160;
+
+              desplazamiento_map_y=-160;
+
+              sonido_abrirpuerta();
+              para_sonido_ambiente();
+              cambio = 0;
+         }
+         break;
+    case 2:   // casa
          if ( cambio == 1 )
          {
               // cambiamos a otro lugar
               // bosque
-              lugar = 2;
+              lugar = 3;
               carga_escenario();
               // situamos al prota dentro de la casa
               jugador.posiciona( 410,370 );
@@ -233,12 +517,12 @@ void cambia_escenario()
 
          }
          break;
-    case 2:   // bosque
+    case 3:   // bosque
          if ( cambio == 2 )
          {
               // cambiamos a otro lugar
               // casa
-              lugar = 1;
+              lugar = 2;
               carga_escenario();
               // situamos al prota cerca de la puerta
               jugador.posiciona( 290,440 );
@@ -253,7 +537,7 @@ void cambia_escenario()
          {
               // cambiamos a otro lugar
               // ciudad
-              lugar = 3;
+              lugar = 4;
               carga_escenario();
               // situamos al prota en el camino
               jugador.posiciona( 500,540 );
@@ -264,12 +548,12 @@ void cambia_escenario()
               cambio = 0;
          }
          break;
-    case 3:   // ciudad
+    case 4:   // ciudad
          if ( cambio == 1 )
          {
               // cambiamos a otro lugar
               // bosque
-              lugar = 2;
+              lugar = 3;
               carga_escenario();
               // situamos al prota en el camino del bosque
               jugador.posiciona( 650,30 );
@@ -282,7 +566,7 @@ void cambia_escenario()
          {
               // cambiamos a otro lugar
               // tienda1
-              lugar = 4;
+              lugar = 5;
               carga_escenario();
               // situamos al prota en el camino del bosque
               jugador.posiciona( 376,460 );
@@ -292,11 +576,11 @@ void cambia_escenario()
               cambio = 0;
          }
          break;
-    case 4:   // tienda1
+    case 5:   // tienda1
          if ( cambio == 1)
          {
               // cambiamos a la ciudad
-              lugar=3;
+              lugar=4;
               carga_escenario();
               jugador.posiciona( 400,300 );
               desplazamiento_map_x=1090;
@@ -304,9 +588,466 @@ void cambia_escenario()
               cambio = 0;
               sonido_abrirpuerta();
          }
+         break;
+    case 6:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 8;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+              cambio = 0;
 
 
-    default:
+         }
+         break;
+    case 7:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 12;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 490,446 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=160;
+              cambio = 0;
+
+
+         }
+         break;
+    case 8:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 6;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+              cambio = 0;
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 9;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+
+              cambio = 0;
+         }
+         break;
+    case 9:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 11;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+              cambio = 0;
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 10;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+              cambio = 0;
+         }
+         break;
+    case 10:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 9;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+              cambio = 0;
+
+
+         }
+         break;
+    case 11:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 9;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+
+              cambio = 0;
+
+
+         }
+         break;
+    case 12:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 7;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+
+              cambio = 0;
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 13;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 658,454 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=160;
+              cambio = 0;
+         }
+         break;
+    case 13:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 14;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+              cambio = 0;
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 12;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=160;
+              cambio = 0;
+         }
+         break;
+    case 14:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 13;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=160;
+              cambio = 0;
+
+
+         }
+         break;
+    case 15:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 16;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+              cambio = 0;
+
+
+         }
+         break;
+    case 16:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 15;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+
+              cambio = 0;
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 17;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+         }
+         break;
+    case 17:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 18;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 480,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 16;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+             desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+         }
+         break;
+    case 18:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 19;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+
+
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 17;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+         }
+         break;
+    case 19:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 20;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=160;
+              cambio = 0;
+
+
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 18;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 480,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+         }
+         break;
+    case 20:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 19;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=160;
+              cambio = 0;
+
+
+         }
+         break;
+    case 21:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 22;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+             desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+
+
+         }
+         break;
+    case 22:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 21;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+
+              cambio = 0;
+
+
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 23;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+         }
+         break;
+    case 23:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 24;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+
+
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 22;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+             desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+         }
+         break;
+    case 24:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 23;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+             desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+
+
+         }
+         if ( cambio == 2 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 25;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=-160;
+              desplazamiento_map_y=-160;
+
+              cambio = 0;
+         }
+         break;
+    case 25:   // casa
+         if ( cambio == 1 )
+         {
+              // cambiamos a otro lugar
+              // bosque
+              lugar = 24;
+              carga_escenario();
+              // situamos al prota dentro de la casa
+              jugador.posiciona( 410,370 );
+              desplazamiento_map_x=0;
+              desplazamiento_map_y=0;
+
+              cambio = 0;
+
+
+         }
+         break;
+   default:
          break;
     }
     carga_mapa_choque();
@@ -324,39 +1065,16 @@ void evento_escenario()
 
     switch ( lugar )
     {
-    case 1:// casa
+    case 2:// casa
          break;
-    case 2:   // bosque
+    case 3:   // bosque
          break;
-    case 3:   // ciudad
+    case 4:   // ciudad
 
-
-         if ( personajes[0].posicion_cerca()
+        if ( personajes[0].posicion_cerca()
                && jugador.accion() && !jugador.hablando() )
          {
               dialogo.cambia_texto(" Dejame!! estoy ocupadooooo!! ");
-              hablando = 1;
-         }
-
-         if ( personajes[4].posicion_cerca()
-               && jugador.accion() && !jugador.hablando() )
-         {
-              dialogo.cambia_texto(" Aparta!!, no tengo tiempo para hablar con pueblerinos. Tengo que seguir con mi ronda de vigilancia. " );
-              hablando = 1;
-         }
-
-         if ( personajes[5].posicion_cerca()
-               && jugador.accion() && !jugador.hablando() )
-         {
-              dialogo.cambia_texto(" Soy la reina de los mares!! .. paseando por la calle voy ^_^ " );
-              hablando = 1;
-         }
-
-
-         if ( personajes[6].posicion_cerca()
-               && jugador.accion() && !jugador.hablando() )
-         {
-              dialogo.cambia_texto(" Me han dicho que han visto un goblin merodeando por el bosque, debes tener cuidado cuando vuelvas a tu casa." );
               hablando = 1;
          }
 
@@ -378,7 +1096,7 @@ void evento_escenario()
 
          break;
 
-    case 4: // en la tienda
+    case 5: // en la tienda
 
          if ( personajes[8].getestado() == 6 && cambio == 0 && !personajes[8].posicion_cerca())
          {
@@ -833,8 +1551,6 @@ void pinta_barra_vida()
                     jugador.getnivel() );
 }
 
-
-
 // Se encarga de pintar todo sobre el buffer
 void pinta_juego()
 {
@@ -846,29 +1562,162 @@ void pinta_juego()
 
     switch ( lugar )
     {
-    case 1:   // casa
+    case 1:   // charselect
+             ax = desplazamiento_map_x;
+             ay = desplazamiento_map_y;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+
+    case 2:   // casa
              bx=160;
              by=160;
              ancho = 480;
              alto = 325;
              break;
-    case 2:   // bosque
+    case 3:   // bosque
              ax = desplazamiento_map_x;
              ay = desplazamiento_map_y;
              ancho = PANTALLA_ANCHO;
              alto  = PANTALLA_ALTO;
              break;
-    case 3:  // ciudad1
+    case 4:  // ciudad1
              ax = desplazamiento_map_x;
              ay = desplazamiento_map_y;
              ancho = PANTALLA_ANCHO;
              alto  = PANTALLA_ALTO;
              break;
-  case 4: // tienda1
+  case 5: // tienda1
              bx = 170;
              by = 100;
              ancho = 448;
              alto = 416;
+             break;
+ case 6:   // elfo1
+             bx=160;
+             by=160;
+             ancho = 480;
+             alto = 325;
+             break;
+
+case 7:   // g1
+             bx=160;
+             by=160;
+             ancho = 480;
+             alto = 325;
+             break;
+case 8:   // elfo1
+             bx=160;
+             by=160;
+             ancho = 480;
+             alto = 325;
+             break;
+case 9:   // elfo1
+             bx=160;
+             by=160;
+             ancho = 480;
+             alto = 325;
+             break;
+case 10:   // elfo1
+             bx=160;
+             by=160;
+             ancho = 480;
+             alto = 325;
+             break;
+case 11:   // elfo1
+             bx=160;
+             by=160;
+             ancho = 480;
+             alto = 325;
+             break;
+case 12:   // elfo1
+              ax = desplazamiento_map_x;
+             ay = desplazamiento_map_y;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+
+case 13:   // elfo1
+              ax = desplazamiento_map_x;
+             ay = desplazamiento_map_y;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+case 14:   // elfo1
+             bx=160;
+             by=160;
+             ancho = 480;
+             alto = 325;
+             break;
+case 15:   // elfo1
+             bx=160;
+             by=160;
+             ancho = 480;
+             alto = 325;
+             break;
+
+case 16:   // elfo1
+             ax = 0;
+             ay = 0;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+
+case 17:   // elfo1
+              ax = 0;
+             ay = 0;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+case 18:   // elfo1
+              ax = 0;
+             ay = 0;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+case 19:   // elfo1
+              ax = desplazamiento_map_x;
+             ay = desplazamiento_map_y;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+
+case 20:   // elfo1
+             ax = desplazamiento_map_x;
+             ay = desplazamiento_map_y;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+
+case 21:   // elfo1
+             bx=160;
+             by=160;
+             ancho = 480;
+             alto = 325;
+             break;
+case 22:   // elfo1
+             ax = 0;
+             ay = 0;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+case 23:   // elfo1
+             ax = 0;
+             ay = 0;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+case 24:   // elfo1
+             ax = 0;
+             ay = 0;
+             ancho = PANTALLA_ANCHO;
+             alto  = PANTALLA_ALTO;
+             break;
+case 25:   // elfo1
+             bx=160;
+             by=160;
+             ancho = 480;
+             alto = 325;
              break;
     default:
          break;
@@ -876,6 +1725,7 @@ void pinta_juego()
 
 
     blit( fondo, buffer, ax, ay, bx, by, ancho, alto);
+
     for ( int z=0; z < npersonaje; z++ )
     {
          personajes[z].pinta();

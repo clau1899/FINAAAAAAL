@@ -9,3 +9,5 @@ Para compilar el proyecto es necesario:
 https://www.youtube.com/watch?v=pbTY5-LuuJU y descargar el siguiente zip:
 
 http://www.mediafire.com/file/b19dbger797rixs/Allegro+en+CodeBlocks.rar
+
+Le pongo esto porque no estoy segura si el Cmake esté bien :c cambie las dependencias y alguito más, pero creo que me falta algo
